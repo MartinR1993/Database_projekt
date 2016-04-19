@@ -43,9 +43,19 @@ public class Main {
 		try { System.out.println(opr.getOperatoerList()); }
 		catch (DALException e) { System.out.println(e.getMessage()); }
 		
+		System.out.println("Indsaettelse af ny operatoer med opr_id =  5");
+		OperatoerDTO oprDTO1 = new OperatoerDTO(5,"Martin","MR","130193-0000","Hejasverige");
+		try { opr.createOperatoer(oprDTO1); }
+		catch (DALException e) { System.out.println(e.getMessage()); }	
+		
 		System.out.println("Operatoer nummer 5:");
 		try { System.out.println(opr.getOperatoer(5)); }
 		catch (DALException e) { System.out.println(e.getMessage()); }		
+		
+		System.out.println("Update Operator 5");
+		oprDTO1.setCpr("920349-2345");
+		try { opr.updateOperatoer(oprDTO1); }
+		catch (DALException e) { System.out.println(e.getMessage()); }
 		
 	}
 }
