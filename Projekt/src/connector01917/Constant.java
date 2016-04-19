@@ -7,8 +7,8 @@ public abstract class Constant
 {
 	public static final String
 		server					= "localhost",  // database-serveren sql-lab1.cc.dtu.dk
-		database				= "s143043",  //"jdbcdatabase", // navnet paa din database = dit studienummer
-		username				= "s143043", // dit brugernavn = dit studienummer 
+		database				= "Projekt_1",  //"jdbcdatabase", // navnet paa din database = dit studienummer
+		username				= "root", // dit brugernavn = dit studienummer 
 		password				= ""; // dit password som du har valgt til din database
 	
 	public static final int
