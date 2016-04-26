@@ -19,7 +19,7 @@ public class produktBatchKompTest {
 		ProduktBatchKompImpl rb = new ProduktBatchKompImpl();
 
 		System.out.println("Indsaettelse af ny ProduktBatchKomp med pb_id = 1");
-		ProduktBatchKompDTO ProduktBatchKompDTO = new ProduktBatchKompDTO(1, 1, 0.5, 10.5, 1);
+		ProduktBatchKompDTO ProduktBatchKompDTO = new ProduktBatchKompDTO(1, 1, 0.5, 10.5, 2);
 		try { rb.createProduktBatchKomp(ProduktBatchKompDTO); }
 		catch (DALException e) { System.out.println(e.getMessage()); }
 		

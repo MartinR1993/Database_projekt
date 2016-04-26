@@ -19,7 +19,7 @@ public class produktBatchTest {
 		ProduktBatchImpl pb = new ProduktBatchImpl();
 
 		System.out.println("Indsaettelse af ny ProduktBatch med pb_id =  1");
-		ProduktBatchDTO produktBatchDTO = new ProduktBatchDTO(1, 1, 3);
+		ProduktBatchDTO produktBatchDTO = new ProduktBatchDTO(1, 3, 1);
 		try { pb.createProduktBatch(produktBatchDTO); }
 		catch (DALException e) { System.out.println(e.getMessage()); }
 		
