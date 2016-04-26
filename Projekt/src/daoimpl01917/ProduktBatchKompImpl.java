@@ -14,10 +14,10 @@ public class ProduktBatchKompImpl implements ProduktBatchKompDAO {
 
 	@Override
 	public ProduktBatchKompDTO getProduktBatchKomp(int pbId, int rbId) throws DALException {
-		ResultSet rs = Connector.doQuery("SELECT * FROM produktbatchkomponent WHERE pbId = " + pbId + " AND rbId = " + rbId);
+		ResultSet rs = Connector.doQuery("SELECT * FROM produktbatchkomponent WHERE pb_id = " + pbId + " AND rb_id = " + rbId);
 		try {
 			if (!rs.first()) throw new DALException("Produktbatchkomponenten med ID " + pbId + ", findes ikke");
-			return new ProduktBatchKompDTO (rs.getInt("pbId"), rs.getInt("rbId"), rs.getDouble("tara"), rs.getDouble("netto"), rs.getInt("oprId"));
+			return new ProduktBatchKompDTO (rs.getInt("pb_id"), rs.getInt("rb_id"), rs.getDouble("tara"), rs.getDouble("netto"), rs.getInt("opr_id"));
 		}
 		catch (SQLException e) {throw new DALException(e); }
 	}
@@ -25,12 +25,12 @@ public class ProduktBatchKompImpl implements ProduktBatchKompDAO {
 	@Override
 	public List<ProduktBatchKompDTO> getProduktBatchKompList(int pbId) throws DALException {
 		List<ProduktBatchKompDTO> list = new ArrayList<ProduktBatchKompDTO>();
-		ResultSet rs = Connector.doQuery("SELECT * FROM produktbatchkomponent WHERE pbId = " + pbId);
+		ResultSet rs = Connector.doQuery("SELECT * FROM produktbatchkomponent WHERE pb_id = " + pbId);
 		try
 		{
 			while (rs.next()) 
 			{
-				list.add(new ProduktBatchKompDTO(rs.getInt("pbId"), rs.getInt("rbId"), rs.getDouble("tara"), rs.getDouble("netto"), rs.getInt("oprId")));
+				list.add(new ProduktBatchKompDTO(rs.getInt("pb_id"), rs.getInt("rb_id"), rs.getDouble("tara"), rs.getDouble("netto"), rs.getInt("opr_id")));
 			}
 		}
 		catch (SQLException e) { throw new DALException(e); }
@@ -45,7 +45,7 @@ public class ProduktBatchKompImpl implements ProduktBatchKompDAO {
 		{
 			while (rs.next()) 
 			{
-				list.add(new ProduktBatchKompDTO(rs.getInt("pbId"), rs.getInt("rbId"), rs.getDouble("tara"), rs.getDouble("netto"), rs.getInt("oprId")));
+				list.add(new ProduktBatchKompDTO(rs.getInt("pb_id"), rs.getInt("rb_id"), rs.getDouble("tara"), rs.getDouble("netto"), rs.getInt("opr_id")));
 			}
 		}
 		catch (SQLException e) { throw new DALException(e); }
@@ -55,7 +55,7 @@ public class ProduktBatchKompImpl implements ProduktBatchKompDAO {
 	@Override
 	public void createProduktBatchKomp(ProduktBatchKompDTO produktbatchkomponent) throws DALException {
 		Connector.doUpdate(
-				"INSERT INTO produktbatchkomponent(pbId, rbId, tara, netto, orpId) VALUES " +
+				"INSERT INTO produktbatchkomponent(pb_id, rb_id, tara, netto, orp_id) VALUES " +
 						"(" + produktbatchkomponent.getPbId() + ", '" + produktbatchkomponent.getRbId() + "', '" + 
 						produktbatchkomponent.getTara() + "', '" + produktbatchkomponent.getNetto() + "', '" + 
 						produktbatchkomponent.getOprId() + "')"
@@ -65,9 +65,9 @@ public class ProduktBatchKompImpl implements ProduktBatchKompDAO {
 	@Override
 	public void updateProduktBatchKomp(ProduktBatchKompDTO produktbatchkomponent) throws DALException {
 		Connector.doUpdate(
-				"UPDATE produktbatchkomponent SET rbId = '" + produktbatchkomponent.getRbId() + "', tara =  '" + 
+				"UPDATE produktbatchkomponent SET rb_id = '" + produktbatchkomponent.getRbId() + "', tara =  '" + 
 						produktbatchkomponent.getTara() + "', netto = '" + produktbatchkomponent.getNetto() + 
-						"', oprId = '" + produktbatchkomponent.getOprId() + "' WHERE pbId = " +
+						"', opr_id = '" + produktbatchkomponent.getOprId() + "' WHERE pb_id = " +
 						produktbatchkomponent.getPbId()
 				);
 	}
