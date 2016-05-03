@@ -69,5 +69,4 @@ public class Connector
 		catch (SQLException e) { throw new DALException(e); }
 	}
 
-
 }
