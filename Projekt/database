@@ -36,7 +36,6 @@ CREATE TABLE produktbatchkomponent(pb_id INT, rb_id INT, tara REAL, netto REAL, 
 
 INSERT INTO operatoer(opr_id, opr_navn, ini, cpr, password) VALUES
 (1, 'Sys-Admin', 'SA', '000000-0000', 'Test1234'),
-(2, 'Mikkel H', 'MH', '123456-7890', 'Hej1234'),
-(3, 'Martin R', 'MR', '098765-4321', 'Hejsa123');
+
 
  
