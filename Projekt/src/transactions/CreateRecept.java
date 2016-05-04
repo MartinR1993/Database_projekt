@@ -5,14 +5,15 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import connector01917.Connector;
+import connector01917.Constant;
 
 public class CreateRecept {
 	Connection conn;
 	
 	public void createRecept(int recept_id, String recept_navn, int raavare_id, double nom_netto, double tolerance) throws SQLException, InstantiationException, IllegalAccessException, ClassNotFoundException{
 
-		conn = Connector.connectToDatabase("jdbc:mysql://"+"localhost"+":"+3306+"/"+"Projekt_1",
-				"root", "");
+		conn = Connector.connectToDatabase("jdbc:mysql://"+Constant.server+":"+Constant.port+"/"+Constant.database,
+				Constant.username, Constant.password);
 		PreparedStatement insertRecept = null;
 		PreparedStatement insertReceptKomp = null;
 
