@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import connector01917.Connector;
 import transactions.CreateRecept;
 
-public class testtest {
+public class createReceptTest {
 	public static void main(String[] args) throws SQLException, InstantiationException, IllegalAccessException, ClassNotFoundException {
 		try { new Connector(); } 
 		catch (InstantiationException e) { e.printStackTrace(); }

@@ -2,6 +2,8 @@
 
 use Projekt_1;
 
+DROP VIEW IF EXISTS recepter;
+DROP VIEW IF EXISTS showDisplayName;
 DROP TABLE IF EXISTS produktbatchkomponent;
 DROP TABLE IF EXISTS produktbatch;
 DROP TABLE IF EXISTS operatoer;
@@ -35,7 +37,11 @@ CREATE TABLE produktbatchkomponent(pb_id INT, rb_id INT, tara REAL, netto REAL, 
 
 
 INSERT INTO operatoer(opr_id, opr_navn, ini, cpr, password) VALUES
-(1, 'Sys-Admin', 'SA', '000000-0000', 'Test1234'),
+(1, 'Sys-Admin', 'SA', '000000-0000', 'Test1234');
 
+CREATE VIEW showDisplayName AS 
+SELECT opr_id, opr_navn FROM operatoer;
 
- 
+CREATE VIEW recepter AS
+SELECT recept_id, recept_navn, raavare_id, nom_netto, tolerance
+FROM recept NATURAL JOIN receptkomponent;
