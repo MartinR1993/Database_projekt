@@ -16,54 +16,54 @@ public class operatoerTest {
 		catch (ClassNotFoundException e) { e.printStackTrace(); }
 		catch (SQLException e) { e.printStackTrace(); }
 
-		System.out.println("Operatoer nummer 3:");
+		System.out.println("Operatoer nummer 1:");
 		OperatoerImpl opr = new OperatoerImpl();
-		try { System.out.println(opr.getOperatoer(3)); }
+		try { System.out.println(opr.getOperatoer(1)); }
 		catch (DALException e) { System.out.println(e.getMessage()); }
 
-		System.out.println("Indsaettelse af ny operatoer med opr_id =  4");
-		OperatoerDTO oprDTO = new OperatoerDTO(4,"Don Juan","DJ","000000-0000","iloveyou");
+		System.out.println("Indsaettelse af ny operatoer med opr_id =  2");
+		OperatoerDTO oprDTO = new OperatoerDTO(2,"Don Juan","DJ","000000-0000","iloveyou", 0, "operatør");
 		try { opr.createOperatoer(oprDTO); }
 		catch (DALException e) { System.out.println(e.getMessage()); }	
 
-		System.out.println("Operatoer nummer 4:");
-		try { System.out.println(opr.getOperatoer(4)); }
+		System.out.println("Operatoer nummer 2:");
+		try { System.out.println(opr.getOperatoer(2)); }
 		catch (DALException e) { System.out.println(e.getMessage()); }
 
-		System.out.println("Opdatering af initialer for operatoer nummer 4");
+		System.out.println("Opdatering af initialer for operatoer nummer 2");
 		oprDTO.setIni("DoJu");
 		try { opr.updateOperatoer(oprDTO); }
 		catch (DALException e) { System.out.println(e.getMessage()); }
 
-		System.out.println("Operatoer nummer 4:");
-		try { System.out.println(opr.getOperatoer(4)); }
+		System.out.println("Operatoer nummer 2:");
+		try { System.out.println(opr.getOperatoer(2)); }
 		catch (DALException e) { System.out.println(e.getMessage()); }
 
 		System.out.println("Alle operatoerer:");
 		try { System.out.println(opr.getOperatoerList()); }
 		catch (DALException e) { System.out.println(e.getMessage()); }
 
-		System.out.println("Indsaettelse af ny operatoer med opr_id =  5");
-		OperatoerDTO oprDTO1 = new OperatoerDTO(5,"Martin","MR","130193-0000","Hejasverige");
+		System.out.println("Indsaettelse af ny operatoer med opr_id =  3");
+		OperatoerDTO oprDTO1 = new OperatoerDTO(3,"Martin","MR","130193-0000","Hejasverige", 2, "farmaceut");
 		try { opr.createOperatoer(oprDTO1); }
 		catch (DALException e) { System.out.println(e.getMessage()); }	
 
-		System.out.println("Operatoer nummer 5:");
-		try { System.out.println(opr.getOperatoer(5)); }
+		System.out.println("Operatoer nummer 3:");
+		try { System.out.println(opr.getOperatoer(3)); }
 		catch (DALException e) { System.out.println(e.getMessage()); }		
 
-		System.out.println("Update Operator 5");
+		System.out.println("Update cpr for Operator 3");
 		oprDTO1.setCpr("920349-2345");
 		try { opr.updateOperatoer(oprDTO1); }
 		catch (DALException e) { System.out.println(e.getMessage()); }
 
-		System.out.println("Update Operator 5");
+		System.out.println("Update password for Operator 3: ");
 		oprDTO1.setPassword("hejmeddig");
 		try { opr.updateOperatoer(oprDTO1); }
 		catch (DALException e) { System.out.println(e.getMessage()); }
 
-		System.out.println("Operatoer nummer 5:");
-		try { System.out.println(opr.getOperatoer(5)); }
+		System.out.println("Operatoer nummer 3:");
+		try { System.out.println(opr.getOperatoer(3)); }
 		catch (DALException e) { System.out.println(e.getMessage());
 		}
 	}

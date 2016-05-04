@@ -12,7 +12,7 @@ DROP TABLE IF EXISTS recept;
 DROP TABLE IF EXISTS raavarebatch;
 DROP TABLE IF EXISTS raavare;
 
-CREATE TABLE operatoer(opr_id INT PRIMARY KEY, opr_navn TEXT, ini TEXT, cpr TEXT, password TEXT) ENGINE=innoDB;
+CREATE TABLE operatoer(opr_id INT PRIMARY KEY, opr_navn TEXT, ini TEXT, cpr TEXT, password TEXT, aktiv BOOLEAN, type TEXT) ENGINE=innoDB;
  
 CREATE TABLE raavare(raavare_id INT PRIMARY KEY, raavare_navn TEXT, leverandoer TEXT) ENGINE=innoDB;
 
@@ -36,8 +36,8 @@ CREATE TABLE produktbatchkomponent(pb_id INT, rb_id INT, tara REAL, netto REAL, 
    FOREIGN KEY (opr_id) REFERENCES operatoer(opr_id)) ENGINE=innoDB;
 
 
-INSERT INTO operatoer(opr_id, opr_navn, ini, cpr, password) VALUES
-(1, 'Sys-Admin', 'SA', '000000-0000', 'Test1234');
+INSERT INTO operatoer(opr_id, opr_navn, ini, cpr, password, aktiv, type) VALUES
+(1, 'Sys-Admin', 'SA', '000000-0000', 'Test1234', true, 'administrator');
 
 CREATE VIEW showDisplayName AS 
 SELECT opr_id, opr_navn FROM operatoer;
